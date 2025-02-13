@@ -1,0 +1,61 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %}
+Manage Products | Inventory Management
+{% endblock title %}
+
+{% block content %}
+            <!-- Product code -->
+            <section>
+                <div class="container">
+                    <div class="row ">
+                        <div class="col-lg-6 ">
+                            <div class="input-group mb-2 mt-4">
+                                <a href="{% url 'newproduct'  %}" class="btn btn-primary">New Product</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="input-group mb-2 mt-4 float-end" style="width: 300px;">
+                              <input type="text" class="form-control w-4" placeholder="Search" id="searchInput">
+                              <div class="input-group-append" >
+                                <button class="btn btn-primary text-white " type="button" onclick="searchTable()">Search</button>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <table class="table table-bordered border-dark table table-hover  mt-5" style="width: 95%; border:1px solid black ;" id="dataTable">
+                                <thead >
+                                  <tr>
+                                    <th colspan="6" class="text-center"><h1>Products List</h1></th>
+                                  </tr>
+                                  <tr class="text-center">
+                                    <th scope="col" style="width: 5%;">S.No</th>
+                                    <th scope="col" style="width: 30%;">Category Name</th>
+                                    <th scope="col" style="width: 30%;">Product Name</th>
+                                    <th scope="col" style="width: 10%;">In Stock</th>
+                                    <th scope="col" style="width: 10%;">Min Stock</th>
+                                    <th scope="col" style="width: 20%;">Action</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {% for datas in data %}
+                                  <tr class="text-center">
+                                    <th scope="row">{{forloop.counter}}</th>
+                                    <td>{{datas.cat_name}}</td>
+                                    <td>{{datas.product_name}}</td>
+                                    <td>{{datas.in_stock}}</td>
+                                    <td>{{datas.min_stock}}</td>
+                                    <td><a href="/editproduct/{{datas.id}}" type="button" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a> <a href="/delete_product/{{datas.id}}"><button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button></a></td>
+                                  </tr>
+                                  {% endfor %}
+                                </tbody>
+                              </table>
+                        </div>
+                    </div>
+                </div>
+             </section>
+
+{% endblock content %}

@@ -1,0 +1,46 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %}
+Settings | Inventory Management
+{% endblock title %}
+
+{% block content %}
+            <!-- Settings code -->
+            <section>
+                <div class="container setting-top">
+                    <div class="row  mt-5 dash-card-1">
+                      <div class="col-lg-4"></div>
+                      <div class="col-lg-4">
+                        <div class="card" style="width: 20rem;">
+                           <div class="row">
+                            <div class="col-lg-1"></div>
+                            <div class="col-lg-10">
+                                <div class="card-body">
+                                  
+                                    <h3 class="card-title text-center mb-3">Settings</h3>
+                                    <p class="card-text">Username : <span> {{request.user}}</span></p>
+                                    <p class="card-text">Password : <span> * * * * </span></p>
+                                    
+                                    <p class="card-text">Store Name : 
+                                      {% for datas in data %}
+                                      <span>{{datas.store_name}}</span>
+                                      
+                                    </p>
+                                    <div class="text-center">
+                                        <a href="/settingsedit/{{datas.id}}" class="btn btn-danger">Edit</a>
+                                    </div>
+                                    {% endfor %}
+                                  </div>
+                            </div>
+                            <div class="col-lg-1"></div>
+                           </div>
+                          </div>
+                      </div>
+                      <div class="col-lg-4"></div>
+                      
+                    </div>
+                </div>
+               </section>
+{% endblock content %}
+

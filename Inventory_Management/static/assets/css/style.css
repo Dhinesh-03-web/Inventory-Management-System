@@ -1,0 +1,170 @@
+/* Common style for all pages */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+::after,
+::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+h1 {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.wrapper {
+    display: flex;
+}
+.main {
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    transition: all 0.35s ease-in-out;
+    background-color: #fafbfe;
+}
+#sidebar {
+    width: 260px;
+    min-width: 260px;
+    height: 100vh;
+    z-index: 1000;
+    transition: all .25s ease-in-out;
+    background-color: #0e2238;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+}
+.toggle-btn {
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+    padding: 1rem 1.5rem;
+}
+
+.toggle-btn i {
+    font-size: 1.5rem;
+    color: #FFF;
+}
+.sidebar-logo {
+    margin: auto 0;
+}
+.sidebar-logo a {
+    color: #FFF;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+.sidebar-nav {
+    padding: 2rem 0;
+    flex: 1 1 auto;
+}
+a.sidebar-link {
+    padding: .625rem 1.625rem;
+    color: #FFF;
+    display: block;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    border-left: 3px solid transparent;
+}
+.sidebar-link i {
+    font-size: 1.1rem;
+    margin-right: .75rem;
+}
+a.sidebar-link:hover {
+    background-color: rgba(255, 255, 255, .075);
+    border-left: 3px solid #3b7ddd;  
+}
+.sidebar-item {
+    position: relative;
+    padding-bottom: 10px;
+}
+/* navbar */
+.main nav{
+    background-color: #0e2238;
+}
+nav div h1{
+    margin: 0 34%;
+}
+.navbar-fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; 
+    background-color: #333;
+}
+/* section top margin */
+section{
+    padding-top: 8vh;
+    padding-bottom: 22vh;
+}
+/* section top margin */
+/* search box style */
+section{
+    padding-top: 8vh;
+}
+section .container .row-1 .input-group{
+    margin-left: 70%;
+    width: 300px;
+}
+/* common style end */
+
+/* Dashborad style */
+.main .card{
+    background-color:#d9f2d9;
+}
+
+.main .card i{
+    font-size: 21px;
+}
+.main .dash-card .card{
+    background-color: #ece7f2;
+    text-align: center;
+}
+.main .dash-card-1 .card{
+    background-color: #ece7f2;
+}
+.main .dash-card .card .card-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Sales Report style */
+body .salesreport{
+    margin: 0 20%;
+}
+
+/* Settings style */
+section .setting-top{
+    margin-top: 25vh;
+}
+
+
+
+
+
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+.h-custom {
+height: calc(100% - 73px);
+}
+
+@media (max-width: 450px) {
+.h-custom {
+height: 100%;
+}
+}

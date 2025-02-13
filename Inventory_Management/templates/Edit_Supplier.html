@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %}
+Edit Suppliers | Inventory Management
+{% endblock title %}
+
+{% block content %}
+ <!-- Supplier code -->
+ <section>
+    <div class="container">
+        <div class="row dash-card-1" style=" justify-content: center;">
+            <form method="post" style="width: 50%;" class="mt-5 p-3 card">
+              {% csrf_token %}
+                <h3 class="text-center">Edit Supplier</h3>
+                <div class="form-group mb-4">
+                  <label for="com-name">Company Name</label>
+                  <input type="text" class="form-control" id="com-name" placeholder="Enter the company name" value="{{edit.company_name}}" name="company_name">
+                </div>
+                <div class="form-group mb-4">
+                    <label for="supp-name">Supplier Name</label>
+                    <input type="text" class="form-control" id="supp-name" placeholder="Enter the supplier name" value="{{edit.supplier_name}}" name="supplier_name">
+                </div>
+                <div class="form-group mb-4">
+                  <label for="supp-number">Supplier Phone Number</label>
+                  <input type="number" class="form-control" id="supp-number" placeholder="Enter supplier phone number" value="{{edit.phone_number}}" name="phone_number">
+                </div>
+                <div class="form-group mb-4">
+                   <label for="com-address">Company Address</label>
+                   <input type="text" class="form-control" id="com-address" placeholder="Enter company address" value="{{edit.company_address}}" name="company_address">
+                </div>
+                <div class="form-group mb-4">
+                  <label for="com-address">Total Purchase</label>
+                  <input type="number" class="form-control" id="com-address" placeholder="Enter the amount" value="{{edit.total_purchase}}" name="total_purchase">
+               </div>
+               <div class="form-group mb-4">
+                <label for="com-address">Purchase Due</label>
+                <input type="number" class="form-control" id="com-address" placeholder="Enter the amount" value="{{edit.purchase_due}}" name="purchase_due">
+               </div>
+                <div class="form-group mb-1 mt-1 text-center " >
+                  <button class="btn btn-warning" type="submit">Save</button>
+                </div>
+              </form>
+        </div>
+    </div>
+   </section>
+{% endblock content %}
+           

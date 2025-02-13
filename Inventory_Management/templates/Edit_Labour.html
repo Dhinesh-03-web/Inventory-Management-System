@@ -1,0 +1,36 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %}
+Edit Labour | Inventory Management
+{% endblock title %}
+
+{% block content %}
+<!-- Edit Labour code -->
+<section>
+    <div class="container">
+        <div class="row dash-card-1" style=" justify-content: center;">
+            <form method="POST" style="width: 50%;" class="mt-5 p-3 card">
+              {% csrf_token %}
+                <h3 class="text-center">Edit Labour</h3>
+                <div class="form-group mb-4">
+                  <label for="labour-name-1">Labour Name</label>
+                  <input type="text" class="form-control" id="labour-name-1" placeholder="Enter the name" value="{{a.lab_name}}" name="lab_name">
+                </div>
+                <div class="form-group mb-4">
+                    <label for="phone-number">Phone Number</label>
+                    <input type="number" class="form-control" id="phone-number" placeholder="Enter the phone number" value="{{a.phone_no}}" name="phone_no">
+                  </div>
+                  <div class="form-group mb-4">
+                    <label for="salary">Salary</label>
+                    <input type="number" class="form-control" id="salary" placeholder="Enter the salary" value="{{a.salary}}" name="salary">
+                  </div>
+                  <div class="form-group mb-2 mt-3 text-center " >
+                    <button class="btn btn-warning" type="submit">Save</button>
+                  </div>
+              </form>
+        </div>
+    </div>
+   </section>
+{% endblock content %}
+            

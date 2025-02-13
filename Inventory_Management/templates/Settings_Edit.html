@@ -1,0 +1,37 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %}
+Settings Edit | Inventory Management
+{% endblock title %}
+
+{% block content %}
+            <!-- Settings Edit code -->
+            <section>
+                <div class="container">
+                    <div class="row dash-card-1" style=" justify-content: center;">
+                        <form method="post" style="width: 40%;" class="mt-5 p-3 card">
+                          {% csrf_token %}
+                            <h3 class="text-center">Edit Setting</h3>
+                            <div class="form-group mb-4">
+                              <label for="com-name">Username : {{request.user}}</label>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="supp-name">Password : * * * * </label>
+                            </div>
+                            <div class="row g-3 align-items-center">
+                              <div class="col-auto">
+                                <label for="inputPassword6" class="col-form-label">Store Name : </label  >
+                              </div>
+                              <div class="col-auto">
+                                <input type="text" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline" name="store_name" value="{{a.store_name}}">
+                              </div>
+                            </div>
+                            <div class="form-group mb-1 mt-1 text-center " >
+                              <button class="btn btn-warning" type="submit">Save</button>
+                            </div>
+                          </form>
+                    </div>
+                </div>
+               </section>    
+{% endblock content %}

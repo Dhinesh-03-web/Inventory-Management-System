@@ -1,0 +1,69 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %}
+Sales Report | Inventory Management
+{% endblock title %}
+
+{% block content %}
+            <!-- manage suppliers code -->
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 text-center">
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="input-group mb-2 mt-4 float-end" style="width: 300px;">
+                              <input type="text" class="form-control w-4" placeholder="Search" id="searchInput">
+                              <div class="input-group-append" >
+                                <button class="btn btn-primary text-white " type="button" onclick="searchTable()">Search</button>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="row mt-3 ">
+                        <form method="post" class="salesreport ">
+                          {% csrf_token %}
+                            <div class="form d-flex" style="width: 50%; ">
+                              <div class="form-group col-md-6">
+                                <label for="date">Date</label>
+                                <input type="date" class="form-control" id="date" placeholder="Select the date" name="date" style="width: 230px;">
+                              </div>
+                              <div class="form-group col-md-6">
+                                <label for="Amount">Amount</label>
+                                <input type="number" class="form-control" id="Amount" placeholder="Enter the amount" name="amount" style="width: 230px;">
+                              </div>
+                              <button type="submit" class="btn btn-primary mt-3 px-4 " >Add</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <table class="table table-bordered table-responsive m-3 mt-5" style="width: 95%; border:1px solid black ;" id="dataTable">
+                                <thead >
+                                  <tr>
+                                    <th colspan="6" class="text-center"><h1>Sales Report</h1></th>
+                                  </tr>
+                                  <tr class="text-center">
+                                    <th scope="col" style="width: 15%;">S.No</th>
+                                    <th scope="col" >Date</th>
+                                    <th scope="col" >Amount</th>
+                                    <th scope="col" style="width: 15%;">Action</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {% for datas in data %}
+                                  <tr class="text-center">
+                                    <th scope="row">{{forloop.counter}}</th>
+                                    <td>{{datas.date}}</td>
+                                    <td>{{datas.amount}}</td>
+                                    <td><a href="/delete_sales_report/{{datas.id}}"><button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button></a></td>
+                                  </tr>
+                                  {% endfor %}
+                                </tbody>
+                              </table>
+                        </div>
+                    </div>
+                </div>
+             </section>
+{% endblock content %}

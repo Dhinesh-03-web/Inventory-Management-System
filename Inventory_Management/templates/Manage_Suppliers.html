@@ -1,0 +1,65 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %}
+Manage Suppliers | Inventory Management
+{% endblock title %}
+
+{% block content %}
+           <!-- manage suppliers code -->
+           <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 ">
+                        <div class="input-group mb-2 mt-4">
+                            <a href="{% url 'newsupplier'  %}" class="btn btn-primary">New Supplier</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="input-group mb-2 mt-4 float-end" style="width: 300px;">
+                          <input type="text" class="form-control w-4" placeholder="Search" id="searchInput">
+                          <div class="input-group-append" >
+                            <button class="btn btn-primary text-white " type="button" onclick="searchTable()">Search</button>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <table class="table table-bordered border-dark table table-hover  mt-5" style="width: 95%; border:1px solid black ;" id="dataTable">
+                            <thead >
+                              <tr>
+                                <th colspan="8" class="text-center"><h1>Supplier List</h1></th>
+                              </tr>
+                              <tr class="text-center">
+                                <th scope="col" >S.No</th>
+                                <th scope="col" >Company Name</th>
+                                <th scope="col" >Supplier Name</th>
+                                <th scope="col" >Supplier Phone Number</th>
+                                <th scope="col" >Company Address</th>
+                                <th scope="col" >Total Purchase</th>
+                                <th scope="col" >Purchase Due</th>
+                                <th scope="col" style="width: 20%;">Action</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {% for datas in data %}
+                              <tr class="text-center">
+                                <th scope="row">{{forloop.counter}}</th>
+                                <td>{{datas.company_name}}</td>
+                                <td>{{datas.supplier_name}}</td>
+                                <td style="width: 20%;">{{datas.phone_number}}</td>
+                                <td>{{datas.company_address}}</td>
+                                <td>{{datas.total_purchase}}</td>
+                                <td>{{datas.purchase_due}}</td>
+                                <td><a href="/editsupplier/{{datas.id}}"><button type="button" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button></a> <a href="/delete_supplier/{{datas.id}}"><button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button></a></td>
+                              </tr>
+                              {% endfor %}
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+            </div>
+         </section>
+{% endblock content %}
+ 

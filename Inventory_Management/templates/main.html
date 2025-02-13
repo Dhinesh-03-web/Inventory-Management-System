@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        {% endblock title %}
+    </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- sidebar -->
+        <aside id="sidebar" >
+            <div class="d-flex">
+                <button class="toggle-btn" type="button">
+                    <i class="fa-solid fa-user"></i>
+                </button>
+                <div class="sidebar-logo">
+                    <a href="#">{{request.user}}</a>
+                </div>
+            </div>
+            <ul class="sidebar-nav ">
+                <li class="sidebar-item">
+                    <a href="{% url 'dashboard'  %}" class="sidebar-link">
+                        <i class="fa-solid fa-gauge"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{% url 'category'  %}" class="sidebar-link">
+                        <i class="fa-solid fa-list"></i>
+                        <span>Category</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{% url 'manageproduct'  %}" class="sidebar-link">
+                        <i class="fa-brands fa-product-hunt"></i>
+                        <span>Products</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{% url 'managelabour'  %}" class="sidebar-link">
+                        <i class="fa-solid fa-people-group"></i>
+                        <span>Labours</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{% url 'managesupplier'  %}" class="sidebar-link">
+                        <i class="fa-solid fa-truck-field"></i>
+                        <span>Suppliers</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{% url 'salesreport'  %}" class="sidebar-link">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        <span>Sales Report</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{% url 'settings'  %}" class="sidebar-link">
+                        <i class="fa-solid fa-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <a href="{% url 'logout' %}" class="sidebar-link">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+        <div class="main">
+            <!-- navbar -->
+            <nav class="navbar navbar-fixed">
+                <div class="container-fluid ">
+                    {% for item in my_model_data %}
+                        <h1 class="navbar-brand  text-white">{{item.store_name}}</h1>
+                    {% endfor %}                  
+                </div>
+            </nav>
+            <!-- Dashborad code -->
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </div>
+     <!-- Bootstrap script link -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+     crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+     <script src="{% static 'assets/js/script.js' %}"></script>
+</body>
+</html>
