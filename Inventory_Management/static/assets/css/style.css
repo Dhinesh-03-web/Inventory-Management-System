@@ -8,7 +8,7 @@
     padding: 0;
 }
 a {
-    text-decoration: none;
+    text-decoration:none;
 }
 li {
     list-style: none;
@@ -147,11 +147,6 @@ body .salesreport{
 section .setting-top{
     margin-top: 25vh;
 }
-
-
-
-
-
 .divider:after,
 .divider:before {
 content: "";

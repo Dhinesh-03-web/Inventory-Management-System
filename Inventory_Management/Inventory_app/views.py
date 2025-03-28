@@ -5,7 +5,6 @@ from django.db.models import Count
 from django.db.models import Sum
 from .models import *
 import datetime
-from django.db import transaction
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import *
@@ -60,7 +59,7 @@ def Dashboard(request):
     if total_purchase_sum is None:
         total_purchase_sum = 0
     if total_purchase_due_sum is None:
-        total_purchase_due_sum= 0
+        total_purchase_due_sum= 0 
     if total_sales_sum is None:
         total_sales_sum=0
 
